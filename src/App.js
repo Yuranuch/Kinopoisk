@@ -4,22 +4,26 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import SearchPage from "./Components/SearchPage/SearchPage";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
+
   return (
-    <div className="wrapper">
-      <Header />
-          <div className="container">
-          <Navbar/>
-          <div className="content">
+      <BrowserRouter>
+          <div className="wrapper">
+              <Header/>
+              <div className="container">
+                  <Navbar/>
+                  <div className="content">
 
-            <SearchPage />
+                      <SearchPage/>
 
-            <DetailsPage />
+                      <DetailsPage/>
 
+                  </div>
+              </div>
           </div>
-          </div>
-    </div>
+      </BrowserRouter>
   );
 }
 
