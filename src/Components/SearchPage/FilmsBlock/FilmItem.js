@@ -7,9 +7,9 @@ function FilmItem(props) {
         <div  className={styles.filmsContainer}>
 
             <div>id- {props.id}</div>
-            <div>Name- {props.title}</div>
-            <div>Year- {props.year}</div>
-            <div className={styles.filmPoster}><img src={props.src}/></div>
+            <div>Name- {props.Title}</div>
+            <div>Year- {props.Year}</div>
+            <div className={styles.filmPoster}><img src={props.Poster}/></div>
         </div>
 
     );
