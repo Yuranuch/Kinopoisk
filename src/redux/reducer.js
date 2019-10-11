@@ -3,9 +3,7 @@ export const GET_FILM = "GET_FILM"
 
 
 const initialState = {
-    films: [
-        {imdbID: 0, Title: "Spider-Man 1", Year: 2001, Poster:"https://media.kg-portal.ru/movies/k/kapitanmarvel/posters/kapitanmarvel_30t.jpg"},
-    ],
+    films: [],
     profile:{}
 
 }

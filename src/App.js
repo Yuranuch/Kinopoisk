@@ -19,7 +19,7 @@ class App extends Component {
                         <div className="content">
 
                             <Route path='/search' component={SearchPage}/>
-                            <Route path='/detail' component={DetailsPage}/>
+                            <Route path='/detail/:filmId?' component={DetailsPage}/>
 
 
                         </div>

@@ -9,15 +9,20 @@ import {setFilms} from "../../redux/reducer";
 
 
 class SearchPage extends Component {
-    componentDidMount() {
+    // componentDidMount() {
+    //
+    //     axios.get("http://www.omdbapi.com/?apikey=711ef504&s=Batman&page=1")
+    //         .then(res => {
+    //             this.props.setFilms(res.data.Search)
+    //         })
+    //
+    // }
 
-        axios.get("http://www.omdbapi.com/?apikey=711ef504&s=Batman&page=1")
+
+    serchFilmClick = (filmName) => {
+        axios.get(`http://www.omdbapi.com/?apikey=711ef504&s=${filmName}&page=1`)
             .then(res => {
-
                 this.props.setFilms(res.data.Search)
-            })
-            .catch(error => {
-                debugger
             })
     }
 
@@ -25,11 +30,14 @@ class SearchPage extends Component {
         const filmsData = this.props.films.map(f => <FilmItem imdbID={f.imdbID} Title={f.Title} Year={f.Year}
                                                               Poster={f.Poster}/>)
         return (
-            <div className={styles.search}>
-                <SearchNavi/>
-                <div className={styles.filmsBlock}>
-                    {filmsData}
+            <div>
+                <div className={styles.search}>
+                    <SearchNavi serchFilmClick={this.serchFilmClick}/>
+                    <div className={styles.filmsBlock}>
+                        {filmsData}
+                    </div>
                 </div>
+                <h1>{this.props.films.length === 0 ?  "enter film name" : ""}</h1>
             </div>
         );
     }

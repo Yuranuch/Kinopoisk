@@ -7,16 +7,14 @@ import {withRouter} from "react-router-dom";
 
 class DetailsPage extends Component {
 
-    constructor(props) {
-        debugger
-        super(props)
-    }
 
     componentDidMount() {
 
-        axios.get("http://www.omdbapi.com/?apikey=bcb1b6a3&i=tt0372784")
+    const filmId =this.props.match.params.filmId
+
+        axios.get(`http://www.omdbapi.com/?apikey=bcb1b6a3&i=${filmId}`)
             .then(res => {
-                debugger
+debugger
                 this.props.getFilm(res.data)
             })
     }
@@ -34,9 +32,11 @@ class DetailsPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    debugger
+
     return {
-        profile: state.profile
+
+        profile: state.profile,
+        films: state.films
     }
 }
 const mapDispatchToProps = (dispatch) => {
