@@ -9,13 +9,12 @@ import {BrowserRouter, Route} from "react-router-dom";
 class App extends Component {
 
     render() {
-
         return (
             <BrowserRouter>
                 <div className="wrapper">
-                    {/*<Header/>*/}
+                    <Navbar/>
                     <div className="container">
-                        <Navbar/>
+
                         <div className="content">
                             <Route path='/search' component={SearchPage}/>
                             <Route path='/detail/:filmId?' component={DetailsPage}/>
