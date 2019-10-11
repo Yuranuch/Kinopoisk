@@ -4,21 +4,9 @@
     display: flex;
     border: 1px solid;
 }
-.navItem a{
-    font-size: 14px;
-    display: block;
-    color: #eeeaea;
-    text-transform: uppercase;
-    height: 50px;
-    padding: 0 25px;
-    align-items: center;
-    text-decoration: none;
-}
-.navItem a:hover{
-    background-color: #ff3f40;
-}
-.navItem a.active {
-    background-color: #ff3f40;
+.logo img{
+    width: 70px;
+
 }
 
 

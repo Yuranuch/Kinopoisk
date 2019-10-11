@@ -7,8 +7,15 @@ function FilmItem(props) {
         <div className={styles.filmsContainer}>
             {/*<div>id- {props.imdbID}</div>*/}
             <div className={styles.title}>{props.Title}</div>
-            <div className={styles.filmPoster}><NavLink to={'/detail/' + props.imdbID}><img
-                src={props.Poster}/></NavLink></div>
+            <div className={styles.filmPoster}>
+                <NavLink to={'/detail/' + props.imdbID}>
+                    <img src={props.Poster !== "N/A" ? props.Poster
+                        : "https://serial-go.com/uploads/no_poster.jpg"}/>
+                </NavLink>
+            </div>
+
+
+
             <div className={styles.yearTitle}>{props.Year}</div>
         </div>
 

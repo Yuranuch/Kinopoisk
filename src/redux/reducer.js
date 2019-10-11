@@ -6,7 +6,7 @@ export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 const initialState = {
     films: [],
     profile:{},
-    isFetching: true
+    isFetching: false
 }
 
 export const reducer = (state = initialState, action) => {

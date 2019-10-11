@@ -32,7 +32,7 @@ class DetailsPage extends Component {
                     <div><b>BoxOffice</b>- {this.props.profile.BoxOffice}</div>
                     <div><b>Actors</b>- {this.props.profile.Actors}</div>
                 </div>
-                <div><img src={this.props.profile.Poster} alt=""/></div>
+                <div><img src={this.props.profile.Poster !== "N/A"?this.props.profile.Poster:"https://serial-go.com/uploads/no_poster.jpg"} alt=""/></div>
             </div>
         );
     }

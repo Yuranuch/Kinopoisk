@@ -9,12 +9,12 @@ import Preloader from "../Common/Preloader/Preloader";
 
 class SearchPage extends Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-        axios.get("http://www.omdbapi.com/?apikey=711ef504&s=Batman&page=1")
-            .then(res => {
-                this.props.toggleIsFetching(false)
-                this.props.setFilms(res.data.Search)
-            })
+        // this.props.toggleIsFetching(true)
+        // axios.get("http://www.omdbapi.com/?apikey=711ef504&s=Batman&page=1")
+        //     .then(res => {
+        //         this.props.toggleIsFetching(false)
+        //         this.props.setFilms(res.data.Search)
+        //     })
     }
 
     serchFilmClick = (filmName) => {
@@ -37,7 +37,7 @@ class SearchPage extends Component {
                         {filmsData}
                     </div>
                 </div>
-                <h1>{films.length === 0 ? "enter film name" : ""}</h1>
+                <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
             </div>
         );
     }
