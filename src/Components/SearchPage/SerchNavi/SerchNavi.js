@@ -3,7 +3,6 @@ import styles from './SearchNavi.module.css'
 
 
 class SearchNavi extends Component {
-
     state = {
         filmName: ""
     }
@@ -22,20 +21,25 @@ class SearchNavi extends Component {
     render() {
         return (
             <div className={styles.searchContainer}>
-                <div><input
-                    type="text"
-                    placeholder="enter film"
-                    onChange={this.searchFilm }
-                />
+                <div className={styles.serching}>
+                    <div className={styles.searchInput}>
+                        <input
+                            type="text"
+                            placeholder="enter film"
+                            onChange={this.searchFilm}
+                        />
+                    </div>
+                    <div>
+                    <button onClick={this.onSerchFilmClick}>Search</button>
                 </div>
+                </div>
+
                 <div><select name="filmYear" id="">
                     <option value="">2000</option>
                     <option value="">2001</option>
                     <option value="">2002</option>
                 </select></div>
-                <div>
-                    <button onClick={this.onSerchFilmClick}>Search</button>
-                </div>
+
                 <div>
                     <button>Reset</button>
                 </div>

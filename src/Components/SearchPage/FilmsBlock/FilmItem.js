@@ -9,7 +9,7 @@ function FilmItem(props) {
             <div className={styles.title}>{props.Title}</div>
             <div className={styles.filmPoster}><NavLink to={'/detail/' + props.imdbID}><img
                 src={props.Poster}/></NavLink></div>
-            <div>{props.Year}</div>
+            <div className={styles.yearTitle}>{props.Year}</div>
         </div>
 
     );

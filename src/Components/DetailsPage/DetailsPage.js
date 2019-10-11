@@ -25,17 +25,25 @@ class DetailsPage extends Component {
         return (
             <div className={styles.detail}>
                 {this.props.isFetching ? <Preloader/> : null}
-                <h1><b>title</b> {this.props.profile.Title}</h1>
-                <p><b>year</b> {this.props.profile.Year}</p>
-                <p><b>poster</b> <img src={this.props.profile.Poster} alt=""/></p>
-                {/*<div>{this.props.profile.Poster}</div>*/}
+              <div>
+                <h1>{this.props.profile.Title}</h1>
+                <div><b>Year</b>-{this.props.profile.Year}</div>
+                <div><b>Runtime</b>- {this.props.profile.Runtime}</div>
+                  <div><b>BoxOffice</b>- {this.props.profile.BoxOffice}</div>
+                  <div><b>Actors</b>- {this.props.profile.Actors}</div>
+              </div>
+                <div><img src={this.props.profile.Poster} alt=""/></div>
+
+
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
+    debugger
     return {
+
         profile: state.profile,
         films: state.films,
         isFetching: state.isFetching,

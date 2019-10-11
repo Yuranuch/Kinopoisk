@@ -12,7 +12,6 @@ class SearchPage extends Component {
         this.props.toggleIsFetching(true)
         axios.get("http://www.omdbapi.com/?apikey=711ef504&s=Batman&page=1")
             .then(res => {
-                debugger
                 this.props.toggleIsFetching(false)
                 this.props.setFilms(res.data.Search)
             })

@@ -3,4 +3,11 @@
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    background-color: #c7b4ff
+}
+.serching {
+    display: flex;
+}
+.searchInput {
+    margin-right: 10px;
 }
