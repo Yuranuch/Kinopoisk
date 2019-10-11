@@ -6,10 +6,10 @@ function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={`${styles.navItem} ${styles.active}`}>
-                <NavLink to="/search" activeClassName={styles.active}>SearchPage</NavLink>
+                <NavLink to="/search" activeClassName={styles.active}>Search Page</NavLink>
             </div>
             <div className={styles.navItem}>
-                <NavLink to="/detail" activeClassName={styles.active}>DetailsPage</NavLink>
+                <NavLink to="/detail" activeClassName={styles.active}>Details Page</NavLink>
             </div>
         </div>
     );

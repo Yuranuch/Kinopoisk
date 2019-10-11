@@ -13,13 +13,13 @@ class App extends Component {
             <BrowserRouter>
                 <div className="wrapper">
                     <Navbar/>
-                    <div className="container">
+
 
                         <div className="content">
                             <Route path='/search' component={SearchPage}/>
                             <Route path='/detail/:filmId?' component={DetailsPage}/>
                         </div>
-                    </div>
+
                 </div>
             </BrowserRouter>
         );
