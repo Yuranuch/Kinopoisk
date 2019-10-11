@@ -1,13 +1,14 @@
 .searchContainer {
     border: 1px solid grey;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     background-color: #c7b4ff
 }
 .serching {
-    display: flex;
+    position: relative
 }
 .searchInput {
     margin-right: 10px;
+    display: flex
 }

@@ -1,17 +1,26 @@
 import React, {Component} from 'react';
 import './App.css';
-import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import SearchPage from "./Components/SearchPage/SearchPage";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Redirect, Route} from "react-router-dom";
 
 class App extends Component {
+    state = {
+        redirect: true
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/search' />
+        }
+    }
 
     render() {
         return (
             <BrowserRouter>
                 <div className="wrapper">
+                    {this.renderRedirect()}
                     <Navbar/>
                         <div className="content">
                             <Route path='/search' component={SearchPage}/>

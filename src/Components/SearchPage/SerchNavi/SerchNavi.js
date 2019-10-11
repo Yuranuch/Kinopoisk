@@ -1,37 +1,20 @@
 import React, {Component} from 'react';
 import styles from './SearchNavi.module.css'
+import SearchInputReduxForm from "./SearchInput";
+
 
 
 class SearchNavi extends Component {
-    state = {
-        filmName: ""
-    }
-
-    searchFilm = e => {
-        const newFilm = e.currentTarget.value
-        this.setState({
-            filmName: newFilm
-        })
-    }
-
-    onSerchFilmClick = () => {
-        this.props.serchFilmClick(this.state.filmName)
+    onSubmit = (formData) => {
+        console.log(formData)
     }
 
     render() {
         return (
             <div className={styles.searchContainer}>
                 <div className={styles.serching}>
-                    <div className={styles.searchInput}>
-                        <input
-                            type="text"
-                            placeholder="enter film"
-                            onChange={this.searchFilm}
-                        />
-                    </div>
-                    <div>
-                    <button onClick={this.onSerchFilmClick}>Search</button>
-                </div>
+                    <SearchInputReduxForm onSubmit={this.onSubmit} serchFilmClick={this.props.serchFilmClick}/>
+
                 </div>
 
                 <div>
@@ -50,5 +33,7 @@ class SearchNavi extends Component {
         );
     }
 }
+
+
 
 export default SearchNavi;

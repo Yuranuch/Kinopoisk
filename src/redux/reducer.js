@@ -9,7 +9,7 @@ const initialState = {
     isFetching: false
 }
 
-export const reducer = (state = initialState, action) => {
+export const filmsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_FILMS:
             return {

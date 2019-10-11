@@ -35,9 +35,12 @@ class SearchPage extends Component {
                     <SearchNavi serchFilmClick={this.serchFilmClick}/>
                     <div className={styles.filmsBlock}>
                         {filmsData}
+                        <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
                     </div>
+
                 </div>
-                <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
+
+
             </div>
         );
     }
@@ -45,8 +48,8 @@ class SearchPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        films: state.films,
-        isFetching: state.isFetching
+        films: state.filmsPagesPage.films,
+        isFetching: state.filmsPagesPage.isFetching
     }
 }
 

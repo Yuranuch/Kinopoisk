@@ -41,10 +41,9 @@ class DetailsPage extends Component {
 const mapStateToProps = (state) => {
     debugger
     return {
-
-        profile: state.profile,
-        films: state.films,
-        isFetching: state.isFetching,
+        profile: state.filmsPagesPage.profile,
+        films: state.filmsPagesPage.films,
+        isFetching: state.filmsPagesPage.isFetching,
     }
 }
 const mapDispatchToProps = (dispatch) => {
