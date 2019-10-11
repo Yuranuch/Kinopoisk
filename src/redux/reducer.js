@@ -1,11 +1,12 @@
 export const SET_FILMS = "SET_FILMS"
 export const GET_FILM = "GET_FILM"
+export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 
 
 const initialState = {
     films: [],
-    profile:{}
-
+    profile:{},
+    isFetching: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -17,10 +18,14 @@ export const reducer = (state = initialState, action) => {
 
             }
         case GET_FILM:
-            debugger
             return {
                 ...state,
                 profile: action.film
+            }
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
             }
 
     }
@@ -31,3 +36,4 @@ export const reducer = (state = initialState, action) => {
 
 export const setFilms = (films) => ({type: SET_FILMS, films})
 export const getFilm = (film) => ({type: GET_FILM, film})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})

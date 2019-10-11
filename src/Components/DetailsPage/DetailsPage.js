@@ -10,8 +10,10 @@ class DetailsPage extends Component {
 
     componentDidMount() {
 
-    const filmId =this.props.match.params.filmId
-
+    let filmId =this.props.match.params.filmId;
+        if(!filmId){
+            filmId="tt0372784"
+        }
         axios.get(`http://www.omdbapi.com/?apikey=bcb1b6a3&i=${filmId}`)
             .then(res => {
 debugger

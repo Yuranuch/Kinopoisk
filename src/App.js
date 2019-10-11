@@ -17,11 +17,8 @@ class App extends Component {
                     <div className="container">
                         <Navbar/>
                         <div className="content">
-
                             <Route path='/search' component={SearchPage}/>
                             <Route path='/detail/:filmId?' component={DetailsPage}/>
-
-
                         </div>
                     </div>
                 </div>
