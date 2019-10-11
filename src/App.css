@@ -4,8 +4,7 @@
 .wrapper {
   width: 1000px;
   margin: 0 auto;
-  background-color: salmon;
-  height: 100px;
+  display: flex;
 }
 .container {
   width: 1000px;
@@ -16,5 +15,4 @@
 .content {
   width: 70%;
 
-  height: 500px;
 }

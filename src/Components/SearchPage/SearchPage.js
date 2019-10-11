@@ -1,14 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './SearchPage.module.css'
 
-function SearchPage() {
-    return (
-        <div className={styles.search}>
-           SEARCH_PAGE
-        </div>
-    );
+import FilmItem from "./FilmsBlock/FilmItem";
+import SearchNavi from "./SerchNavi/SerchNavi";
+import {connect} from "react-redux";
+
+
+class SearchPage extends Component {
+    render() {
+        const filmsData = this.props.films.map(f =><FilmItem id={f.id} title={f.title} year={f.year} src={f.src} />)
+        return (
+            <div className={styles.search}>
+                <SearchNavi/>
+                <div className={styles.filmsBlock}>
+                    {filmsData}
+                </div>
+            </div>
+        );
+    }
 }
 
-export default SearchPage;
+const mapStateToProps = (state)=> {
+    debugger
+    return {
+        films: state.films
+    }
+}
+const mapDispatchToProps = (dispatch)=> {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
 
 

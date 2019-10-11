@@ -1,7 +1,7 @@
 .navbar {
     width: 30%;
     background-color: gray;
-    height: 500px;
+    height: 100vh;
 }
 .navItem a{
     font-size: 14px;

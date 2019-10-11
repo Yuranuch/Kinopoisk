@@ -1,4 +1,7 @@
 .search {
-    background-color: seagreen;
-    height: 100px;
+
+}
+.filmsBlock {
+    display: flex;
+    flex-wrap: wrap;
 }
