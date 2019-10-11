@@ -25,16 +25,14 @@ class DetailsPage extends Component {
         return (
             <div className={styles.detail}>
                 {this.props.isFetching ? <Preloader/> : null}
-              <div>
-                <h1>{this.props.profile.Title}</h1>
-                <div><b>Year</b>-{this.props.profile.Year}</div>
-                <div><b>Runtime</b>- {this.props.profile.Runtime}</div>
-                  <div><b>BoxOffice</b>- {this.props.profile.BoxOffice}</div>
-                  <div><b>Actors</b>- {this.props.profile.Actors}</div>
-              </div>
+                <div>
+                    <h1>{this.props.profile.Title}</h1>
+                    <div><b>Year</b>-{this.props.profile.Year}</div>
+                    <div><b>Runtime</b>- {this.props.profile.Runtime}</div>
+                    <div><b>BoxOffice</b>- {this.props.profile.BoxOffice}</div>
+                    <div><b>Actors</b>- {this.props.profile.Actors}</div>
+                </div>
                 <div><img src={this.props.profile.Poster} alt=""/></div>
-
-
             </div>
         );
     }

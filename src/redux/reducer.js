@@ -27,7 +27,6 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
-
     }
 
     return state;

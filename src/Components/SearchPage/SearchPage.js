@@ -25,8 +25,8 @@ class SearchPage extends Component {
     }
 
     render() {
-
-        const filmsData = this.props.films.map(f =>
+        const {films=[]}=this.props
+        const filmsData = films.map(f =>
             <FilmItem imdbID={f.imdbID} Title={f.Title} Year={f.Year} Poster={f.Poster}/>)
         return (
             <div className={styles.searchPage}>
@@ -37,7 +37,7 @@ class SearchPage extends Component {
                         {filmsData}
                     </div>
                 </div>
-                <h1>{this.props.films.length === 0 ? "enter film name" : ""}</h1>
+                <h1>{films.length === 0 ? "enter film name" : ""}</h1>
             </div>
         );
     }

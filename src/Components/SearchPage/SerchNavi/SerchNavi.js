@@ -7,14 +7,14 @@ class SearchNavi extends Component {
         filmName: ""
     }
 
-    searchFilm = (e) => {
-        let newFilm = e.currentTarget.value
+    searchFilm = e => {
+        const newFilm = e.currentTarget.value
         this.setState({
             filmName: newFilm
         })
     }
 
-    onSerchFilmClick =() => {
+    onSerchFilmClick = () => {
         this.props.serchFilmClick(this.state.filmName)
     }
 
@@ -34,11 +34,13 @@ class SearchNavi extends Component {
                 </div>
                 </div>
 
-                <div><select name="filmYear" id="">
-                    <option value="">2000</option>
-                    <option value="">2001</option>
-                    <option value="">2002</option>
-                </select></div>
+                <div>
+                    <select name="filmYear" id="">
+                        <option value="">2000</option>
+                        <option value="">2001</option>
+                        <option value="">2002</option>
+                    </select>
+                </div>
 
                 <div>
                     <button>Reset</button>
