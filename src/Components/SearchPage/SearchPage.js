@@ -7,6 +7,10 @@ import {connect} from "react-redux";
 
 
 class SearchPage extends Component {
+   componentDidMount() {
+
+   }
+
     render() {
         const filmsData = this.props.films.map(f =><FilmItem id={f.id} title={f.title} year={f.year} src={f.src} />)
         return (
