@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from "./Header.module.css"
+import styles from "./Navbar.module.css"
 
 function Navbar() {
     return (
-        <div className={styles.header}>
-
+        <div className={styles.navbar}>
+            <a href="#"></a>
         </div>
     );
 }
