@@ -4,7 +4,7 @@ import FilmItem from "./FilmsBlock/FilmItem";
 import SearchNavi from "./SerchNavi/SerchNavi";
 import {connect} from "react-redux";
 import * as axios from "axios"
-import {clearAll, setFilms, toggleIsFetching} from "../../redux/reducer";
+import {clearAll, currentPageClick, setFilms, toggleIsFetching} from "../../redux/reducer";
 import Preloader from "../Common/Preloader/Preloader";
 
 class SearchPage extends Component {
@@ -27,8 +27,17 @@ class SearchPage extends Component {
         this.props.clearAll(clear)
     }
 
+    onPageChanged = () => {
+
+    }
+
 
     render() {
+        const pageCount = this.props.totalFilmsCount/this.props.pageSize
+        const pages = []
+        for (let i=1; i<=pageCount; i++)
+            pages.push(i)
+
         const {films=[]}=this.props
         const filmsData = films.map(f =>
             <FilmItem imdbID={f.imdbID} Title={f.Title} Year={f.Year} Poster={f.Poster}/>)
@@ -37,11 +46,21 @@ class SearchPage extends Component {
                 {this.props.isFetching ? <Preloader/> : null}
                 <div className={styles.search}>
                     <SearchNavi serchFilmClick={this.serchFilmClick} resetSettings={this.resetSettings}/>
+
                     <div className={styles.filmsBlockWrapper}>
+
                         <div className={styles.filmsBlock}>
+
                         {filmsData}
                         <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
                     </div>
+                        <div className={styles.paginationWrap}>
+                            {films.length !== 0 && <div className={styles.pagination}>
+                                {pages.map(p =><span onClick={()=>{this.props.currentPageClick(p)}}
+                                                     className={this.props.currentPage===p && styles.selectedPage}>{p}</span>)}
+                            </div> }
+
+                        </div>
                     </div>
 
                 </div>
@@ -53,9 +72,14 @@ class SearchPage extends Component {
 }
 
 const mapStateToProps = (state) => {
+    debugger
     return {
+
         films: state.filmsPagesPage.films,
-        isFetching: state.filmsPagesPage.isFetching
+        isFetching: state.filmsPagesPage.isFetching,
+        pageSize: state.filmsPagesPage.pageSize,
+        totalFilmsCount: state.filmsPagesPage.totalFilmsCount,
+        currentPage: state.filmsPagesPage.currentPage
     }
 }
 
@@ -69,6 +93,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         clearAll: (clear) => {
             dispatch(clearAll(clear))
+        },
+        currentPageClick: (currentPage) => {
+            dispatch(currentPageClick(currentPage))
         }
 
     }

@@ -13,5 +13,33 @@
     padding: 0 20px;
     justify-content: stretch;
     flex-wrap: wrap;
+}
 
+.paginationWrap {
+    width: 400px;
+    margin: 0 auto 30px auto;
+}
+.paginationWrap span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pagination {
+    width: 400px;
+    display: flex;
+    margin: 0 auto 30px auto;
+    justify-content: space-between;
+}
+
+.selectedPage {
+    background-color: #e6e600;
+    color: black;
 }
