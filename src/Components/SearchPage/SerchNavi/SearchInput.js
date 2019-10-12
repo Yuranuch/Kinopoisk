@@ -35,8 +35,10 @@ class SearchInput extends Component {
                         />
                     </div>
 
-                        <button onClick={this.onSearchFilmClick}>Search</button>
+                        <button className={styles.buttonWrap} onClick={this.onSearchFilmClick}>SEARCH</button>
+
                     </div>
+
 
                 </div>
             </form>

@@ -5,11 +5,6 @@ import SearchInputReduxForm from "./SearchInput";
 
 
 class SearchNavi extends Component {
-    constructor (props) {
-        debugger
-        super(props)
-    }
-
 
     onSubmit = (formData) => {
         console.log(formData)
@@ -28,14 +23,15 @@ class SearchNavi extends Component {
                     <SearchInputReduxForm onSubmit={this.onSubmit} serchFilmClick={this.props.serchFilmClick}/>
                 </div>
                 <div>
-                    <select name="filmYear" id="">
+                    <select className={styles.select} name="filmYear" id="">
                         <option value="">2000</option>
                         <option value="">2001</option>
                         <option value="">2002</option>
                     </select>
+
                 </div>
                 <div>
-                    <button onClick={this.onResetSettings}>Reset</button>
+                    <button className={styles.reset} onClick={this.onResetSettings}>Reset</button>
                 </div>
             </div>
 </div>

@@ -7,6 +7,8 @@
     margin: 0 auto;
     padding: 10px;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 
 }
@@ -18,8 +20,8 @@
     display: flex
 }
 .inputWrapp {
-    background-color: yellow;
-    margin: 0 10px 0 0;
+    background-color: #f4f400;
+    margin: 0 20px 0 0;
     border-radius: 20px;
     padding: 3px;
 }
@@ -29,6 +31,35 @@
     width: 200px;
     padding: 0 15px;
     border: 2px solid black;
-
     border-radius: 20px;
+}
+.buttonWrap {
+    height: 34px;
+    background-color: #f4f400;
+    border: 2px solid;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 0 20px 0 0;
+}
+.buttonWrap:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 12px 5px #b9b900 inset;
+}
+
+.reset {
+    border: 2px solid #b9b900;
+    border-radius: 20px;
+    height: 20px;
+    width: 70px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.select {
+    border: 1px solid black;
+    height: 20px;
+    width: 80px;
+    color: grey;
+    cursor: pointer;
+    font-weight: bold;
 }
