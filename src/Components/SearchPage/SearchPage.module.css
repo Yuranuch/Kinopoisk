@@ -17,7 +17,7 @@
 
 .paginationWrap {
     width: 400px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto ;
 }
 .paginationWrap span {
     display: block;
@@ -33,7 +33,7 @@
 }
 
 .pagination {
-    width: 400px;
+    width: 200px;
     display: flex;
     margin: 0 auto 30px auto;
     justify-content: space-between;

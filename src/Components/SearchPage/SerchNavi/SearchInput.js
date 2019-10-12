@@ -5,29 +5,20 @@ import {requiredField} from "../../../utils/validators/validators";
 import {Input} from "../../Common/FormControls/FormsControls";
 
 class SearchInput extends Component {
-    state = {
-        filmName: "",
-        year: 1985
-    }
+
 
     searchFilm = e => {
-
-        const newFilm = e.currentTarget.value
-        this.setState({
-            filmName: newFilm
-        })
+        const newFilmName = e.currentTarget.value
+        this.props.getFilmName(newFilmName )
     }
 
     searchYear = e => {
-        debugger
         const newYear = e.currentTarget.value
-        this.setState({
-            year: newYear
-        })
+       this.props.getYear(newYear)
     }
 
     onSearchFilmClick = () => {
-        this.props.searchFilmClick(this.state.filmName, this.state.year)
+        this.props.searchFilmClick()
 
     }
 

@@ -21,7 +21,8 @@ class SearchNavi extends Component {
             <div className={styles.searchContainer}>
                 <div className={styles.serching}>
                     <SearchInputReduxForm onSubmit={this.onSubmit}
-
+                                          getYear={this.props.getYear}
+                                          getFilmName={this.props.getFilmName}
                                           searchFilmClick={this.props.searchFilmClick}/>
                 </div>
 
