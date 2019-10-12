@@ -13,9 +13,6 @@ function FilmItem(props) {
                         : "https://serial-go.com/uploads/no_poster.jpg"}/>
                 </NavLink>
             </div>
-
-
-
             <div className={styles.yearTitle}>{props.Year}</div>
         </div>
 
