@@ -1,6 +1,7 @@
 export const SET_FILMS = "SET_FILMS"
 export const GET_FILM = "GET_FILM"
 export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
+export const CLEAR_ALL = "CLEAR_ALL"
 
 
 const initialState = {
@@ -27,6 +28,12 @@ export const filmsReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
+        case CLEAR_ALL:
+            debugger
+            return {
+                ...state,
+                films: action.clear
+            }
     }
 
     return state;
@@ -36,3 +43,4 @@ export const filmsReducer = (state = initialState, action) => {
 export const setFilms = (films) => ({type: SET_FILMS, films})
 export const getFilm = (film) => ({type: GET_FILM, film})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const clearAll = (clear) => ({type: CLEAR_ALL, clear})

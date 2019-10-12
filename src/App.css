@@ -2,12 +2,12 @@
   text-align: center;
 }
 .wrapper {
-  width: 1000px;
+ max-width: 1000px;
   margin: 0 auto;
 
 }
 .container {
-  width: 1000px;
+  max-width: 1000px;
   border: 1px solid;
   margin: 0 auto;
   display: flex;

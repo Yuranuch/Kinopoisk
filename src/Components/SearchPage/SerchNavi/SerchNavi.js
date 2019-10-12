@@ -5,8 +5,19 @@ import SearchInputReduxForm from "./SearchInput";
 
 
 class SearchNavi extends Component {
+    constructor (props) {
+        debugger
+        super(props)
+    }
+
+
     onSubmit = (formData) => {
         console.log(formData)
+    }
+
+    onResetSettings = () => {
+        const clearSettings = []
+        this.props.resetSettings(clearSettings)
     }
 
     render() {
@@ -26,7 +37,7 @@ class SearchNavi extends Component {
                 </div>
 
                 <div>
-                    <button>Reset</button>
+                    <button onClick={this.onResetSettings}>Reset</button>
                 </div>
             </div>
 

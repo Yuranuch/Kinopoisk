@@ -4,7 +4,7 @@ import FilmItem from "./FilmsBlock/FilmItem";
 import SearchNavi from "./SerchNavi/SerchNavi";
 import {connect} from "react-redux";
 import * as axios from "axios"
-import {setFilms, toggleIsFetching} from "../../redux/reducer";
+import {clearAll, setFilms, toggleIsFetching} from "../../redux/reducer";
 import Preloader from "../Common/Preloader/Preloader";
 
 class SearchPage extends Component {
@@ -23,6 +23,10 @@ class SearchPage extends Component {
                 this.props.setFilms(res.data.Search)
             })
     }
+    resetSettings = (clear) => {
+        this.props.clearAll(clear)
+    }
+
 
     render() {
         const {films=[]}=this.props
@@ -32,7 +36,7 @@ class SearchPage extends Component {
             <div className={styles.searchPage}>
                 {this.props.isFetching ? <Preloader/> : null}
                 <div className={styles.search}>
-                    <SearchNavi serchFilmClick={this.serchFilmClick}/>
+                    <SearchNavi serchFilmClick={this.serchFilmClick} resetSettings={this.resetSettings}/>
                     <div className={styles.filmsBlock}>
                         {filmsData}
                         <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
@@ -60,6 +64,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         toggleIsFetching: (isFetching) => {
             dispatch(toggleIsFetching(isFetching))
+        },
+        clearAll: (clear) => {
+            dispatch(clearAll(clear))
         }
 
     }

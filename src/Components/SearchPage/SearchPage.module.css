@@ -5,7 +5,7 @@
 .filmsBlock {
     display: flex;
     padding: 0 20px;
-    justify-content: space-between;
+    justify-content: stretch;
     flex-wrap: wrap;
     background-color: lightgrey;
 }
