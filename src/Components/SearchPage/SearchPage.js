@@ -8,28 +8,23 @@ import {clearAll, currentPageClick, setFilms, toggleIsFetching} from "../../redu
 import Preloader from "../Common/Preloader/Preloader";
 
 class SearchPage extends Component {
-    componentDidMount() {
-        // this.props.toggleIsFetching(true)
-        // axios.get("http://www.omdbapi.com/?apikey=711ef504&s=Batman&page=1")
-        //     .then(res => {
-        //         this.props.toggleIsFetching(false)
-        //         this.props.setFilms(res.data.Search)
-        //     })
-    }
 
-    serchFilmClick = (filmName) => {
-        axios.get(`http://www.omdbapi.com/?apikey=711ef504&s=${filmName}&page=1`)
+    searchFilmClick = (filmName, year) => {
+        axios.get(`http://www.omdbapi.com/?apikey=711ef504&s=${filmName}&y=${year}&page=1`)
             .then(res => {
+                debugger
                 this.props.setFilms(res.data.Search)
             })
     }
+
     resetSettings = (clear) => {
         this.props.clearAll(clear)
     }
 
-    onPageChanged = () => {
+    currentPageClick = () => {
 
     }
+
 
 
     render() {
@@ -45,7 +40,9 @@ class SearchPage extends Component {
             <div className={styles.searchPage}>
                 {this.props.isFetching ? <Preloader/> : null}
                 <div className={styles.search}>
-                    <SearchNavi serchFilmClick={this.serchFilmClick} resetSettings={this.resetSettings}/>
+                    <SearchNavi searchFilmClick={this.searchFilmClick}
+
+                                resetSettings={this.resetSettings}/>
 
                     <div className={styles.filmsBlockWrapper}>
 
@@ -55,10 +52,10 @@ class SearchPage extends Component {
                         <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
                     </div>
                         <div className={styles.paginationWrap}>
-                            {films.length !== 0 && <div className={styles.pagination}>
+                            <div className={styles.pagination}>
                                 {pages.map(p =><span onClick={()=>{this.props.currentPageClick(p)}}
                                                      className={this.props.currentPage===p && styles.selectedPage}>{p}</span>)}
-                            </div> }
+                            </div>
 
                         </div>
                     </div>
@@ -72,7 +69,6 @@ class SearchPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    debugger
     return {
 
         films: state.filmsPagesPage.films,

@@ -20,7 +20,6 @@ export const filmsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 films: action.films
-
             }
         case GET_FILM:
             return {
