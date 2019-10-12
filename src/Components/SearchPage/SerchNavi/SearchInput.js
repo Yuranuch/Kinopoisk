@@ -24,7 +24,8 @@ class SearchInput extends Component {
         return (<form onSubmit={this.props.handleSubmit}>
                 <div>
                     <div className={styles.searchInput}>
-                        <Field
+                        <div className={styles.inputWrapp}>
+                        <Field className={styles.inputStyle}
                             name={"search"}
                             type="text"
                             component={Input}
@@ -32,6 +33,8 @@ class SearchInput extends Component {
                             onChange={this.searchFilm}
                             validate = {requiredField}
                         />
+                    </div>
+
                         <button onClick={this.onSearchFilmClick}>Search</button>
                     </div>
 

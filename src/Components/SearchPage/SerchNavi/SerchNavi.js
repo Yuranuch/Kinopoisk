@@ -22,12 +22,11 @@ class SearchNavi extends Component {
 
     render() {
         return (
+    <div className={styles.searchContainerWrapper}>
             <div className={styles.searchContainer}>
                 <div className={styles.serching}>
                     <SearchInputReduxForm onSubmit={this.onSubmit} serchFilmClick={this.props.serchFilmClick}/>
-
                 </div>
-
                 <div>
                     <select name="filmYear" id="">
                         <option value="">2000</option>
@@ -35,12 +34,11 @@ class SearchNavi extends Component {
                         <option value="">2002</option>
                     </select>
                 </div>
-
                 <div>
                     <button onClick={this.onResetSettings}>Reset</button>
                 </div>
             </div>
-
+</div>
         );
     }
 }

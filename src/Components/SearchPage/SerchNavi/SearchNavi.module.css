@@ -1,9 +1,14 @@
+.searchContainerWrapper {
+    background-color: #c7b4ff;
+ border-bottom: 1px solid #c7b4ff;
+}
 .searchContainer {
-    border: 1px solid grey;
-    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
-    background-color: #c7b4ff
+
 }
 .serching {
     position: relative
@@ -11,4 +16,19 @@
 .searchInput {
     margin-right: 10px;
     display: flex
+}
+.inputWrapp {
+    background-color: yellow;
+    margin: 0 10px 0 0;
+    border-radius: 20px;
+    padding: 3px;
+}
+.inputStyle {
+    height: 25px;
+    line-height: 25px;
+    width: 200px;
+    padding: 0 15px;
+    border: 2px solid black;
+
+    border-radius: 20px;
 }

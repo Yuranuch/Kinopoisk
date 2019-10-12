@@ -1,16 +1,33 @@
 .filmsContainer {
+margin: 20px;
+}
+.filmsContainer a{
+    text-decoration: none;
+}
+
+.filmsAlign {
     display:flex;
+    position: relative;
+    z-index: 1;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 170px;
-    border: 1px solid grey;
     padding: 10px;
-    margin: 20px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    transition: 2s;
+}
+
+.filmsAlign:hover {
+    background-color: grey;
+    transition: 1s;
+    opacity: 0.7;
 }
 .filmPoster img {
     width: 150px;
 }
+
 .title {
     text-align: center;
     font-size: 18px;

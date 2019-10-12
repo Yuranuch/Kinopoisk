@@ -37,9 +37,11 @@ class SearchPage extends Component {
                 {this.props.isFetching ? <Preloader/> : null}
                 <div className={styles.search}>
                     <SearchNavi serchFilmClick={this.serchFilmClick} resetSettings={this.resetSettings}/>
-                    <div className={styles.filmsBlock}>
+                    <div className={styles.filmsBlockWrapper}>
+                        <div className={styles.filmsBlock}>
                         {filmsData}
                         <h1>{films.length === 0 ? "Enter correct film name" : ""}</h1>
+                    </div>
                     </div>
 
                 </div>
