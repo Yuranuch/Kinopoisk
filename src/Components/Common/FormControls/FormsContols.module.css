@@ -6,12 +6,12 @@
 }
 .error input {
     border: 2px solid red;
-    box-shadow: 0px 0px 24px -5px #f51f0e;
+    box-shadow: 0px 0px 25px -5px #f51f0e;
 }
 .error span {
     color: red;
-    top: 37px;
-    left: 30px;
-    font-weight: bold;
+    top: 23px;
+    left: 20px;
+
     position: absolute;
 }

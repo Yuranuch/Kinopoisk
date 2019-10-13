@@ -8,13 +8,19 @@ function FilmItem(props) {
             <NavLink to={'/detail/' + props.imdbID}>
                 <div className={styles.filmsAlign}>
                     {/*<div>id- {props.imdbID}</div>*/}
-                    <div className={styles.title}>{props.Title}</div>
-                    <div className={styles.filmPoster}>
 
+                    <div className={styles.filmPoster}>
                         <img src={props.Poster !== "N/A" ? props.Poster
                             : "https://serial-go.com/uploads/no_poster.jpg"}/>
                     </div>
-                    <div className={styles.yearTitle}>{props.Year}</div>
+
+                    <div className={styles.frontInfo}>
+                        <div className={styles.title}>{props.Title}</div>
+                    </div>
+                    <div className={styles.frontInfoYear}>
+                        <div className={styles.yearTitle}>{props.Year}</div>
+                    </div>
+
 
                 </div>
             </NavLink>

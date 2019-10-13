@@ -19,7 +19,6 @@ class SearchPage extends Component {
 
 
     searchFilmClick = () => {
-
         axios.get(`http://www.omdbapi.com/?apikey=711ef504&s=${this.props.filmName}&y=${this.props.year}&page=${this.props.currentPage}`)
             .then(res => {
                 this.props.setFilms(res.data.Search)
@@ -71,6 +70,7 @@ class SearchPage extends Component {
                                 getFilmName={this.getFilmName}
                     />
 
+
                     <div className={styles.filmsBlockWrapper}>
                         <div className={styles.paginationWrap}>
                             <div className={styles.pagination}>
@@ -78,7 +78,7 @@ class SearchPage extends Component {
                                                      className={this.props.currentPage===p &&
                                                      styles.selectedPage}>{p}</span>)}
                             </div>
-                            <h1>{films.length === 0 ? "Please enter film name" : ""}</h1>
+                            {films.length === 0 ? <h1 className={styles.startMessage}>Please enter film name</h1> : ""}
                         </div>
                         <div className={styles.filmsBlock}>
 

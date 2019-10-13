@@ -16,7 +16,7 @@ const initialState = {
     pageSize: 10,
     totalFilmsCount: 0,
     currentPage: 1,
-    year: 1985,
+    year: 2000,
     filmName: ""
 }
 

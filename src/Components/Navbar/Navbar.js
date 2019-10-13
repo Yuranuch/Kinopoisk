@@ -8,11 +8,10 @@ function Navbar() {
         <div className={styles.navbarWrapper}>
             <div className={styles.navbar}>
                 <div className={styles.logoInfo}>
-                    <div className={styles.logo}>
-                        <NavLink to="/search"><img src={logo}/></NavLink>
-                    </div>
-                    <span className={styles.tagline}>Choose a movie</span>
-                    <span className={styles.taglineBack}>for the evening</span>
+                        <NavLink to="/search">
+                            <span className={styles.tagline}>Choose a movie</span>
+                            <span className={styles.taglineBack}>for the evening</span>
+                        </NavLink>
                 </div>
             </div>
         </div>

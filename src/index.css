@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Anton');
+
 
 body {
-  background-color: lightgrey;
+
+  background: url('http://nevseoboi.com.ua/uploads/posts/2012-01/1325767511-754627-0021708_www.nevseoboi.com.ua.jpg') no-repeat;
+  background-size: cover;
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {

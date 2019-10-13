@@ -27,7 +27,7 @@
     padding-right: 20px;
     color: white;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 20px;
 }
 .taglineBack {
@@ -35,12 +35,16 @@
     display: block;
     font-size: 12px;
     line-height: 12px;
-    padding-left: 90px;
+    padding-left: 70px;
 }
 
 .logoInfo {
     position: relative;
 
 }
+.logoInfo a {
+    text-decoration: none;
+}
+
 
 
