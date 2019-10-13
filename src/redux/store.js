@@ -1,6 +1,6 @@
-import {filmsReducer} from "./reducer";
-import {applyMiddleware, combineReducers, createStore} from "redux";
-import {reducer as formReducer} from 'redux-form'
+import {filmsReducer} from "./reducer"
+import {applyMiddleware, combineReducers, createStore} from "redux"
+import {reducer as formReducer} from "redux-form"
 import thunkMiddleWare from "redux-thunk"
 
 const reducers = combineReducers({
@@ -8,8 +8,6 @@ const reducers = combineReducers({
     form: formReducer
 })
 
+const store = createStore(reducers,applyMiddleware(thunkMiddleWare))
 
-const store = createStore(reducers,applyMiddleware(thunkMiddleWare));
-
-
-export default store;
+export default store
