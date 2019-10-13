@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './App.css';
-import Navbar from "./Components/Navbar/Navbar";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import SearchPage from "./Components/SearchPage/SearchPage";
 import {BrowserRouter, Redirect, Route} from "react-router-dom";

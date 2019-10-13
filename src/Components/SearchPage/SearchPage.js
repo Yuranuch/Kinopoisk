@@ -7,23 +7,18 @@ import * as axios from "axios"
 import {
     clearAll,
     currentPageClick,
-    getFilmName,
+    getFilmName, getFilmsThunkCreator,
     getYear,
     setFilms, setTotalPageCount,
     toggleIsFetching
 } from "../../redux/reducer";
 import Preloader from "../Common/Preloader/Preloader";
+import {filmsAPI} from "../../api/api";
 
 class SearchPage extends Component {
 
-
-
     searchFilmClick = () => {
-        axios.get(`http://www.omdbapi.com/?apikey=711ef504&s=${this.props.filmName}&y=${this.props.year}&page=${this.props.currentPage}`)
-            .then(res => {
-                this.props.setFilms(res.data.Search)
-                this.props.setTotalPageCount(res.data.totalResults)
-            })
+        this.props.getFilmsThunkCreator(this.props.filmName, this.props.year, this.props.currentPage)
     }
 
     resetSettings = (clear) => {
@@ -38,12 +33,11 @@ class SearchPage extends Component {
     }
 
     currentPageClick = (pageNumber) => {
-
+        this.props.toggleIsFetching(true)
         this.props.currentPageClick(pageNumber)
-
-        axios.get(`http://www.omdbapi.com/?apikey=711ef504&s=${this.props.filmName}&y=${this.props.year}&page=${pageNumber}`)
+        filmsAPI.getFilms(this.props.filmName, this.props.year, pageNumber)
             .then(res => {
-
+                this.props.toggleIsFetching(false)
                 this.props.setFilms(res.data.Search)
 
             })
@@ -128,6 +122,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setTotalPageCount: (total) => {
             dispatch (setTotalPageCount(total))
+        },
+        getFilmsThunkCreator: (film, year,currentPage) => {
+            dispatch (getFilmsThunkCreator(film, year,currentPage))
         }
 
     }

@@ -2,11 +2,32 @@ import React, {Component} from 'react';
 import styles from "./SearchNavi.module.css";
 import {Field, reduxForm} from "redux-form";
 import {requiredField} from "../../../utils/validators/validators";
-import {Input} from "../../Common/FormControls/FormsControls";
+import {Input} from "../../Common/formControls/FormsControls";
 import {NavLink} from "react-router-dom";
 
 class SearchInput extends Component {
 
+    state = {
+        optionsData: [
+            {optionValue: "1998", optionData: 1998},
+            {optionValue: "1999", optionData: 1999},
+            {optionValue: "2000", optionData: 2000},
+            {optionValue: "2001", optionData: 2001},
+            {optionValue: "2001", optionData: 2001},
+            {optionValue: "2002", optionData: 2002},
+            {optionValue: "2003", optionData: 2003},
+            {optionValue: "2004", optionData: 2004},
+            {optionValue: "2006", optionData: 2005},
+            {optionValue: "2007", optionData: 2007},
+            {optionValue: "2008", optionData: 2008},
+            {optionValue: "2009", optionData: 2009},
+            {optionValue: "2010", optionData: 2010},
+            {optionValue: "2011", optionData: 2011},
+            {optionValue: "2012", optionData: 2012},
+            {optionValue: "2013", optionData: 2013},
+            {optionValue: "2014", optionData: 2014},
+        ]
+    }
 
     searchFilm = e => {
         const newFilmName = e.currentTarget.value
@@ -24,6 +45,7 @@ class SearchInput extends Component {
     }
 
     render() {
+        const optionsData=this.state.optionsData.map(o =><option value={o.optionValue}>{o.optionData}</option> )
         return (<form onSubmit={this.props.handleSubmit}>
                 <div className={styles.searchWrap}>
                     <div className={styles.logoInfo}>
@@ -49,24 +71,7 @@ class SearchInput extends Component {
                     </div>
                     <div>
                         <select onChange={this.searchYear} className={styles.select} name="filmYear" id="">
-
-                            <option value="2000">2000</option>
-                            <option value="2001">2001</option>
-                            <option value="2002">2002</option>
-                            <option value="2003">2003</option>
-                            <option value="2004">2004</option>
-                            <option value="2005">2005</option>
-                            <option value="2006">2006</option>
-                            <option value="2007">2007</option>
-                            <option value="2008">2008</option>
-                            <option value="2009">2009</option>
-                            <option value="2010">2010</option>
-                            <option value="2011">2011</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-
-
+                            {optionsData}
                         </select>
 
                     </div>

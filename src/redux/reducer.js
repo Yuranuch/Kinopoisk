@@ -1,3 +1,5 @@
+import {filmsAPI} from "../api/api";
+
 export const SET_FILMS = "SET_FILMS"
 export const GET_FILM = "GET_FILM"
 export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
@@ -6,8 +8,6 @@ export const CURRENT_PAGE_CLICK = "CURRENT_PAGE_CLICK"
 export const GET_YEAR = "GET_YEAR"
 export const GET_FILM_NAME ="GET_FILM_NAME"
 export const SET_TOTAL_PAGE_COUNT = "SET_TOTAL_PAGE_COUNT"
-
-
 
 const initialState = {
     films: [],
@@ -78,3 +78,18 @@ export const currentPageClick =(currentPage) => ({type: CURRENT_PAGE_CLICK, curr
 export const getYear = (year) => (({type: GET_YEAR, year}))
 export const getFilmName = (filmName) => ({type: GET_FILM_NAME, filmName})
 export const setTotalPageCount = (count) => ({type: SET_TOTAL_PAGE_COUNT, count})
+//ThunkCreators
+export const getFilmsThunkCreator = (film, year,currentPage) => {
+    return (dispatch)  => {
+        dispatch(toggleIsFetching(true))
+        filmsAPI.getFilms(film, year, currentPage)
+            .then(res => {
+                dispatch(toggleIsFetching(false))
+                dispatch(setFilms(res.data.Search))
+                dispatch(setTotalPageCount(res.data.totalResults))
+            })
+    }
+}
+
+
+
