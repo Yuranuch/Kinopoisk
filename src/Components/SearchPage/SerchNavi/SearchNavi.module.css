@@ -1,13 +1,14 @@
 .searchContainerWrapper {
     background: rgba(000, 0, 0, 0.8);
-
 }
+
 .searchWrap {
     display: flex;
-    lign-items: center;
+    align-items: center;
     padding: 0 0 5px 0;
     justify-content: space-between;
 }
+
 .searchContainer {
     max-width: 1000px;
     margin: 0 auto;
@@ -16,13 +17,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
 }
+
 .searchNavi {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .searchInput {
     margin-right: 10px;
     display: flex
@@ -38,6 +40,7 @@
     margin-right: 10px;
     box-shadow: 0px 0px 15px -4px #000000 inset;
 }
+
 .buttonWrap {
     height: 25px;
     background-color: black;
@@ -47,27 +50,33 @@
     line-height: 25px;
     color: white;
 }
+
 .buttonWrap:hover {
     cursor: pointer;
     background-color: dodgerblue;
 }
+
 .reset {
     border: 1px solid white;
     background-color: black;
     border-radius: 3px;
     color: white;
+    margin-top: -7px;
     height: 25px;
+    display: block
 }
+
 .select {
+    margin-top: -1px;
     border: 1px solid white;
     border-radius: 3px;
     height: 25px;
-    width: 80px;
+    width: 105px;
     color: white;
-    background-color:black;
+    background-color: black;
     cursor: pointer;
-
 }
+
 .searchWrap {
     display: flex;
 }
@@ -80,6 +89,7 @@
     font-size: 18px;
     line-height: 20px;
 }
+
 .taglineBack {
     color: white;
     display: block;
@@ -87,9 +97,11 @@
     line-height: 12px;
     padding-left: 70px;
 }
+
 .logoInfo {
     margin-right: 10px;
 }
+
 .logoInfo a {
     text-decoration: none;
 }

@@ -1,8 +1,8 @@
 import React, {Component} from "react"
-import styles from "./DetailsPage.module.css"
 import {connect} from "react-redux"
-import {setFilmId, toggleIsFetching} from "../../redux/reducer"
 import {NavLink, withRouter} from "react-router-dom"
+import styles from "./DetailsPage.module.css"
+import {setFilmId, toggleIsFetching} from "../../redux/reducer"
 import Preloader from "../Common/Preloader/Preloader"
 
 class DetailsPage extends Component {

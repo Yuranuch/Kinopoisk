@@ -1,24 +1,26 @@
 .filmsContainer {
-margin: 10px 13px;
+    margin: 10px 13px;
 }
-.filmsContainer a{
+
+.filmsContainer a {
     text-decoration: none;
 }
 
 .filmsAlign {
-    display:flex;
+    display: flex;
     position: relative;
     z-index: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 165px;
-    min-height: 255px;
+    min-height: 265px;
     padding: 10px;
     border: 1px solid white;
     border-radius: 4px;
     transition: 2s;
 }
+
 .frontInfo {
     position: absolute;
     align-items: center;
@@ -31,27 +33,30 @@ margin: 10px 13px;
     min-height: 240px;
     justify-content: space-between;
 }
+
 .frontInfoYear {
     position: absolute;
     bottom: -10px;
     align-items: center;
     opacity: 0;
 }
-.filmsAlign:hover .frontInfo{
-    opacity: 1;
-    transition: 1s;
-}
-.filmsAlign:hover .frontInfoYear{
+
+.filmsAlign:hover .frontInfo {
     opacity: 1;
     transition: 1s;
 }
 
+.filmsAlign:hover .frontInfoYear {
+    opacity: 1;
+    transition: 1s;
+}
 
 
 .filmsAlign:hover {
     transition: 1s;
     background: rgba(000, 0, 0, 0.8);
 }
+
 .filmPoster img {
     width: 155px;
     max-height: 240px
@@ -60,13 +65,14 @@ margin: 10px 13px;
 .title {
     text-align: center;
     font-size: 16px;
-    font-weight: bold ;
+    font-weight: bold;
     color: white;
     margin: 0 0 20px 0;
     background: rgba(000, 0, 0, 0.9);
     padding: 0 10px;
     border-radius: 5px;
 }
+
 .yearTitle {
     color: white;
     font-size: 13px;

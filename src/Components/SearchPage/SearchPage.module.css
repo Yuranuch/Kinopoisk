@@ -1,29 +1,30 @@
 .searchPage {
     position: relative;
-
 }
+
 .filmsBlockWrapper {
     max-width: 1000px;
     margin: 30px auto;
     padding: 20px;
     background: rgba(000, 0, 0, 0.8);
-
 }
+
 .filmsBlock {
     display: flex;
     justify-content: stretch;
     flex-wrap: wrap;
 }
+
 .pagination {
-    width: 150px;
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .paginationWrap span {
     display: block;
-    width: 25px;
+    width: 20px;
     height: 25px;
     border: 1px solid white;
     border-radius: 4px;
@@ -32,13 +33,12 @@
     align-items: center;
     cursor: pointer;
     color: white;
-    margin-bottom: 10px;
-
+    margin: 0 2px 10px 2px;
 }
 
 .selectedPage {
     background-color: white !important;
-    color: black  !important;
+    color: black !important;
     box-shadow: 0px 0px 15px -4px #000000 inset;
 }
 

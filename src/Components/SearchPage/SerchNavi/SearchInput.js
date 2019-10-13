@@ -1,14 +1,17 @@
-import React, {Component} from 'react';
-import styles from "./SearchNavi.module.css";
-import {Field, reduxForm} from "redux-form";
-import {requiredField} from "../../../utils/validators/validators";
-import {Input} from "../../Common/formControls/FormsControls";
-import {NavLink} from "react-router-dom";
+import React, {Component} from "react"
+import {NavLink} from "react-router-dom"
+import {Field, reduxForm} from "redux-form"
+import styles from "./SearchNavi.module.css"
+import {requiredField} from "../../../utils/validators/validators"
+import {Input} from "../../Common/formControls/FormsControls"
+import {reset} from 'redux-form';
+
 
 class SearchInput extends Component {
 
     state = {
         optionsData: [
+            {optionValue: "Select year", optionData: "Select year"},
             {optionValue: "1998", optionData: 1998},
             {optionValue: "1999", optionData: 1999},
             {optionValue: "2000", optionData: 2000},
@@ -26,26 +29,34 @@ class SearchInput extends Component {
             {optionValue: "2012", optionData: 2012},
             {optionValue: "2013", optionData: 2013},
             {optionValue: "2014", optionData: 2014},
-        ]
+        ],
+        currentValue: "",
+        emptyValue: ""
     }
 
     searchFilm = e => {
         const newFilmName = e.currentTarget.value
-        this.props.getFilmName(newFilmName )
+        this.props.getFilmName(newFilmName)
+
     }
 
     searchYear = e => {
         const newYear = e.currentTarget.value
-       this.props.getYear(newYear)
+        this.props.getYear(newYear)
+        this.setState({
+            currentValue: e.currentTarget.value
+        })
+
     }
 
     onSearchFilmClick = () => {
         this.props.searchFilmClick()
-
     }
 
     render() {
-        const optionsData=this.state.optionsData.map(o =><option value={o.optionValue}>{o.optionData}</option> )
+
+        const optionsData = this.state.optionsData.map(o => <option value={o.optionValue}>{o.optionData}</option>)
+
         return (<form onSubmit={this.props.handleSubmit}>
                 <div className={styles.searchWrap}>
                     <div className={styles.logoInfo}>
@@ -63,6 +74,7 @@ class SearchInput extends Component {
                                    placeholder="enter film"
                                    onChange={this.searchFilm}
                                    validate={requiredField}
+
                             />
                         </div>
                     </div>
@@ -73,16 +85,16 @@ class SearchInput extends Component {
                         <select onChange={this.searchYear} className={styles.select} name="filmYear" id="">
                             {optionsData}
                         </select>
-
                     </div>
-
-
+                    <div>
+                        <button className={styles.reset} onClick={this.props.reset}>Reset</button>
+                    </div>
                 </div>
             </form>
         )
     }
 }
 
-const SearchInputReduxForm =reduxForm({form:'login'})(SearchInput)
+const SearchInputReduxForm = reduxForm({form: "login"})(SearchInput)
 
 export default SearchInputReduxForm

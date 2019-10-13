@@ -16,7 +16,7 @@ const initialState = {
     pageSize: 10,
     totalFilmsCount: 0,
     currentPage: 1,
-    year: 2000,
+    year: "Select year",
     filmName: ""
 }
 
@@ -110,5 +110,16 @@ export const setFilmId = (filmId) => {
     }
 }
 
+export const setPageThunkCreator = (film, year, pageNumber) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        dispatch(currentPageClick(pageNumber))
+        filmsAPI.getFilms(film, year, pageNumber)
+            .then(res => {
+                dispatch(toggleIsFetching(false))
+                dispatch(setFilms(res.data.Search))
+
+            })
+    }}
 
 

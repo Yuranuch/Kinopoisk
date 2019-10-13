@@ -19,3 +19,32 @@ code {
     monospace;
 }
 
+/*1601-1920px*/
+@media screen and (max-width: 1920px){
+
+}
+/*1369-1600px*/
+@media screen and (max-width: 1600px){
+
+}
+/*961-1130px*/
+@media screen and (max-width: 1368px){
+
+}
+/*961-1368px*/
+@media screen and (max-width: 1368px){
+
+}
+/*769-960px*/
+@media screen and (max-width: 960px){
+
+}
+/*469-768px*/
+@media screen and (max-width: 768px){
+
+}
+
+/*320-468px*/
+@media screen and (max-width: 480px){
+
+}

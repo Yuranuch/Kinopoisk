@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import './App.css';
-import DetailsPage from "./Components/DetailsPage/DetailsPage";
-import SearchPage from "./Components/SearchPage/SearchPage";
-import {BrowserRouter, Redirect, Route} from "react-router-dom";
+import React, {Component} from "react"
+import {BrowserRouter, Redirect, Route} from "react-router-dom"
+import "./App.css"
+import DetailsPage from "./Components/DetailsPage/DetailsPage"
+import SearchPage from "./Components/SearchPage/SearchPage"
 
 class App extends Component {
     state = {
@@ -11,7 +11,7 @@ class App extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/search' />
+            return <Redirect to="/search" />
         }
     }
 
@@ -20,16 +20,14 @@ class App extends Component {
             <BrowserRouter>
                 <div className="wrapper">
                     {this.renderRedirect()}
-
                         <div className="content">
-                            <Route path='/search' component={SearchPage}/>
-                            <Route path='/detail/:filmId?' component={DetailsPage}/>
+                            <Route path="/search" component={SearchPage}/>
+                            <Route path="/detail/:filmId?" component={DetailsPage}/>
                         </div>
-
                 </div>
             </BrowserRouter>
-        );
+        )
     }
 }
 
-export default App;
+export default App

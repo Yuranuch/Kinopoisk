@@ -1,29 +1,28 @@
-import React, {Component} from 'react';
-import styles from './SearchPage.module.css'
-import FilmItem from "./FilmsBlock/FilmItem";
-import SearchNavi from "./SerchNavi/SerchNavi";
-import {connect} from "react-redux";
-import * as axios from "axios"
+import React, {Component} from "react"
+import {connect} from "react-redux"
+import styles from "./SearchPage.module.css"
+import FilmItem from "./FilmsBlock/FilmItem"
+import SearchNavi from "./SerchNavi/SerchNavi"
+
 import {
     clearAll,
     currentPageClick,
     getFilmName, getFilmsThunkCreator,
     getYear,
-    setFilms, setTotalPageCount,
+    setPageThunkCreator,
     toggleIsFetching
-} from "../../redux/reducer";
-import Preloader from "../Common/Preloader/Preloader";
-import {filmsAPI} from "../../api/api";
+} from "../../redux/reducer"
+import Preloader from "../Common/Preloader/Preloader"
 
 class SearchPage extends Component {
 
     searchFilmClick = () => {
-        this.props.getFilmsThunkCreator(this.props.filmName, this.props.year, this.props.currentPage)
+        this.props.getFilmsData(this.props.filmName, this.props.year, this.props.currentPage)
     }
 
-    resetSettings = (clear) => {
-        this.props.clearAll(clear)
-    }
+    // resetSettings = (clear) => {
+    //     this.props.clearAll(clear)
+    // }
 
     getYear = (newYear) => {
         this.props.getYear(newYear)
@@ -33,84 +32,67 @@ class SearchPage extends Component {
     }
 
     currentPageClick = (pageNumber) => {
-        this.props.toggleIsFetching(true)
-        this.props.currentPageClick(pageNumber)
-        filmsAPI.getFilms(this.props.filmName, this.props.year, pageNumber)
-            .then(res => {
-                this.props.toggleIsFetching(false)
-                this.props.setFilms(res.data.Search)
-
-            })
+        this.props.setPage(this.props.filmName, this.props.year, pageNumber)
     }
 
-
-
     render() {
-        const pageCount = this.props.totalFilmsCount/this.props.pageSize
+        const pageCount = this.props.totalFilmsCount / this.props.pageSize
         const pages = []
-        for (let i=1; i<=pageCount; i++)
+
+        for (let i = 1; i <= pageCount; i++)
             pages.push(i)
 
-        const {films=[]}=this.props
+        const {films = []} = this.props
         const filmsData = films.map(f =>
             <FilmItem imdbID={f.imdbID} Title={f.Title} Year={f.Year} Poster={f.Poster}/>)
+
         return (
             <div className={styles.searchPage}>
                 {this.props.isFetching ? <Preloader/> : null}
                 <div className={styles.search}>
-                    <SearchNavi searchFilmClick={this.searchFilmClick}
-                                resetSettings={this.resetSettings}
-                                getYear={this.getYear}
-                                getFilmName={this.getFilmName}
-                    />
-
-
+                    <SearchNavi
+                        searchFilmClick={this.searchFilmClick}
+                        resetSettings={this.resetSettings}
+                        getYear={this.getYear}
+                        getFilmName={this.getFilmName}/>
                     <div className={styles.filmsBlockWrapper}>
+                        {films.length === 0 ? <h1 className={styles.startMessage}>Please enter film name</h1> : ""}
+                        <div className={styles.filmsBlock}>
+                            {filmsData}
+                        </div>
                         <div className={styles.paginationWrap}>
                             <div className={styles.pagination}>
-                                {pages.map(p =><span onClick={()=>{this.currentPageClick(p)}}
-                                                     className={this.props.currentPage===p &&
-                                                     styles.selectedPage}>{p}</span>)}
+                                {pages.map(p => <span onClick={() => {this.currentPageClick(p)}}
+                                className={this.props.currentPage === p && styles.selectedPage}>{p}</span>)}
                             </div>
-                            {films.length === 0 ? <h1 className={styles.startMessage}>Please enter film name</h1> : ""}
                         </div>
-                        <div className={styles.filmsBlock}>
-
-                        {filmsData}
-
-                    </div>
-
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-
         films: state.filmsPagesPage.films,
         isFetching: state.filmsPagesPage.isFetching,
         pageSize: state.filmsPagesPage.pageSize,
         totalFilmsCount: state.filmsPagesPage.totalFilmsCount,
         currentPage: state.filmsPagesPage.currentPage,
         year: state.filmsPagesPage.year,
-        filmName: state.filmsPagesPage.filmName
+        filmName: state.filmsPagesPage.filmName,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setFilms: (films) => {
-            dispatch(setFilms(films))
-        },
         toggleIsFetching: (isFetching) => {
             dispatch(toggleIsFetching(isFetching))
         },
-        clearAll: (clear) => {
-            dispatch(clearAll(clear))
-        },
+        // clearAll: (clear) => {
+        //     dispatch(clearAll(clear))
+        // },
         currentPageClick: (currentPage) => {
             dispatch(currentPageClick(currentPage))
         },
@@ -118,18 +100,17 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(getYear(year))
         },
         getFilmName: (filmName) => {
-            dispatch (getFilmName(filmName))
+            dispatch(getFilmName(filmName))
         },
-        setTotalPageCount: (total) => {
-            dispatch (setTotalPageCount(total))
+        getFilmsData: (film, year, currentPage) => {
+            dispatch(getFilmsThunkCreator(film, year, currentPage))
         },
-        getFilmsThunkCreator: (film, year,currentPage) => {
-            dispatch (getFilmsThunkCreator(film, year,currentPage))
+        setPage: (film, year, pageNumber) => {
+            dispatch(setPageThunkCreator(film, year, pageNumber))
         }
-
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
 
 

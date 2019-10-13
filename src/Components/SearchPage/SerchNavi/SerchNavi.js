@@ -1,17 +1,17 @@
 import React, {Component} from "react"
-import styles from "./SearchNavi.module.css"
 import SearchInputReduxForm from "./SearchInput"
+import styles from "./SearchNavi.module.css"
 
 class SearchNavi extends Component {
 
     onSubmit = (formData) => {
-        console.log (formData)
+        console.log(formData)
     }
 
-    onResetSettings = () => {
-        const clearSettings = []
-        this.props.resetSettings(clearSettings)
-    }
+    // onResetSettings = () => {
+    //     const clearSettings = []
+    //     this.props.resetSettings(clearSettings)
+    // }
 
     render() {
         return (
@@ -24,14 +24,11 @@ class SearchNavi extends Component {
                             getFilmName={this.props.getFilmName}
                             searchFilmClick={this.props.searchFilmClick}/>
                     </div>
-                    <div>
-                        <button className={styles.reset} onClick={this.onResetSettings}>Reset</button>
-                    </div>
+
                 </div>
             </div>
         );
     }
 }
-
 
 export default SearchNavi
