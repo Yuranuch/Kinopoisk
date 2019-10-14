@@ -9,6 +9,9 @@
     background: rgba(000, 0, 0, 0.8);
     color: white;
 }
+.detail img {
+
+}
 
 .back {
     position: absolute;
@@ -32,4 +35,25 @@
     background-color: dodgerblue;
     text-decoration: none;
     color: white;
+}
+
+
+@media screen and (max-width: 700px) {
+    .detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail img {
+        margin-top: 10px;
+        max-width: 100%
+    }
+
+    .back {
+        position: relative;
+        bottom: 0px;
+        left: 0px;
+        margin-top: 10px;
+    }
 }
