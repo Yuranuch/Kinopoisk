@@ -60,12 +60,12 @@ class SearchPage extends Component {
                         <div className={styles.filmsBlock}>
                             {filmsData}
                         </div>
-                        <div className={styles.paginationWrap}>
+                        {films.length !== 0 ?<div className={styles.paginationWrap}>
                             <div className={styles.pagination}>
                                 {pages.map(p => <span onClick={() => {this.currentPageClick(p)}}
                                 className={this.props.currentPage === p && styles.selectedPage}>{p}</span>)}
                             </div>
-                        </div>
+                        </div>: ""}
                     </div>
                 </div>
             </div>

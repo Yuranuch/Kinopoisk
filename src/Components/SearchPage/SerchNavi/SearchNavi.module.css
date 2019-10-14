@@ -1,22 +1,26 @@
 .searchContainerWrapper {
     background: rgba(000, 0, 0, 0.8);
 }
-
+.alignWrapp {
+    display: flex;
+    justify-content: space-between;
+}
 .searchWrap {
     display: flex;
     align-items: center;
     padding: 0 0 5px 0;
     justify-content: space-between;
+
 }
 
 .searchContainer {
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
 }
 
 .searchNavi {
@@ -61,9 +65,10 @@
     background-color: black;
     border-radius: 3px;
     color: white;
-    margin-top: -7px;
     height: 25px;
-    display: block
+    margin-top: 1px;
+    display: block;
+    float: right;
 }
 
 .select {
@@ -104,6 +109,35 @@
 
 .logoInfo a {
     text-decoration: none;
+}
+
+@media screen and (max-width: 670px){
+    .logoInfo {
+        display: none;
+    }
+
+}
+@media screen and (max-width: 500px){
+    .searchWrap {
+        display: block;
+        margin-left: 20px;
+    }
+
+    .inputStyle {
+        margin-bottom: 20px;
+    }
+
+    .buttonWrap {
+        margin-bottom: 5px;
+    }
+
+}
+@media screen and (max-width: 320px){
+    .alignWrapp {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 

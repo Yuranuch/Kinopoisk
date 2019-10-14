@@ -4,7 +4,7 @@ import {Field, reduxForm} from "redux-form"
 import styles from "./SearchNavi.module.css"
 import {requiredField} from "../../../utils/validators/validators"
 import {Input} from "../../Common/formControls/FormsControls"
-import {reset} from 'redux-form';
+
 
 
 class SearchInput extends Component {
@@ -30,8 +30,6 @@ class SearchInput extends Component {
             {optionValue: "2013", optionData: 2013},
             {optionValue: "2014", optionData: 2014},
         ],
-        currentValue: "",
-        emptyValue: ""
     }
 
     searchFilm = e => {
@@ -43,10 +41,6 @@ class SearchInput extends Component {
     searchYear = e => {
         const newYear = e.currentTarget.value
         this.props.getYear(newYear)
-        this.setState({
-            currentValue: e.currentTarget.value
-        })
-
     }
 
     onSearchFilmClick = () => {
@@ -57,7 +51,8 @@ class SearchInput extends Component {
 
         const optionsData = this.state.optionsData.map(o => <option value={o.optionValue}>{o.optionData}</option>)
 
-        return (<form onSubmit={this.props.handleSubmit}>
+        return (<form className={styles.alignWrapp} onSubmit={this.props.handleSubmit}>
+
                 <div className={styles.searchWrap}>
                     <div className={styles.logoInfo}>
                         <NavLink to="/search">
@@ -73,22 +68,26 @@ class SearchInput extends Component {
                                    component={Input}
                                    placeholder="enter film"
                                    onChange={this.searchFilm}
-                                   validate={requiredField}
-
-                            />
+                                   validate={requiredField} />
                         </div>
                     </div>
                     <div>
                         <button className={styles.buttonWrap} onClick={this.onSearchFilmClick}>Search</button>
                     </div>
                     <div>
-                        <select onChange={this.searchYear} className={styles.select} name="filmYear" id="">
+                        <Field
+                            onChange={this.searchYear}
+                            className={styles.select}
+                            name={"filmYear"}
+                            component={"select"}
+                            id="">
                             {optionsData}
-                        </select>
+                        </Field>
                     </div>
-                    <div>
-                        <button className={styles.reset} onClick={this.props.reset}>Reset</button>
-                    </div>
+                </div>
+
+                <div>
+                    <button className={styles.reset} onClick={this.props.reset}>Reset</button>
                 </div>
             </form>
         )
