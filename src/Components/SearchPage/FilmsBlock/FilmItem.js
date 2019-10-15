@@ -2,7 +2,6 @@ import React from "react"
 import {NavLink} from "react-router-dom"
 import styles from "./FilmItem.module.css"
 
-
 function FilmItem(props) {
     return (
         <div className={styles.filmsContainer}>

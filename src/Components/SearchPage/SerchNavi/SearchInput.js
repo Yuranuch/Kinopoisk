@@ -14,7 +14,6 @@ class SearchInput extends Component {
             {optionValue: "1999", optionData: 1999},
             {optionValue: "2000", optionData: 2000},
             {optionValue: "2001", optionData: 2001},
-            {optionValue: "2001", optionData: 2001},
             {optionValue: "2002", optionData: 2002},
             {optionValue: "2003", optionData: 2003},
             {optionValue: "2004", optionData: 2004},
