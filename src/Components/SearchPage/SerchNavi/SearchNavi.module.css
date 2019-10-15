@@ -116,8 +116,6 @@
     position: absolute;
 }
 
-
-
 @media screen and (max-width: 670px){
     .logoInfo {
         display: none;

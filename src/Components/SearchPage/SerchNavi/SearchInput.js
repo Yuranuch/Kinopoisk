@@ -5,14 +5,7 @@ import styles from "./SearchNavi.module.css"
 import {requiredField} from "../../../utils/validators/validators"
 import {Input} from "../../Common/formControls/FormsControls"
 
-
-
 class SearchInput extends Component {
-
-    constructor (props) {
-
-        super(props)
-    }
 
     state = {
         optionsData: [
@@ -73,11 +66,9 @@ class SearchInput extends Component {
                                    component={Input}
                                    placeholder="enter film"
                                    onChange={this.searchFilm}
-                                   validate={requiredField} />
-                            { this.props.error&&<div className={styles.summaryError}>{this.props.error}</div> }
+                                   validate={requiredField}/>
+                            {this.props.error && <div className={styles.summaryError}>{this.props.error}</div>}
                         </div>
-
-
                     </div>
                     <div>
                         <button className={styles.buttonWrap} onClick={this.onSearchFilmClick}>Search</button>
@@ -93,7 +84,6 @@ class SearchInput extends Component {
                         </Field>
                     </div>
                 </div>
-
                 <div>
                     <button className={styles.reset} onClick={this.props.reset}>Reset</button>
                 </div>
