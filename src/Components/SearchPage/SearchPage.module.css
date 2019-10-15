@@ -1,5 +1,6 @@
 .searchPage {
     position: relative;
+    min-width: 255px;
 }
 
 .filmsBlockWrapper {

@@ -1,10 +1,12 @@
 .searchContainerWrapper {
     background: rgba(000, 0, 0, 0.8);
 }
-.alignWrapp {
+
+.alignWrap {
     display: flex;
     justify-content: space-between;
 }
+
 .searchWrap {
     display: flex;
     align-items: center;
@@ -17,10 +19,6 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*align-items: center;*/
-    /*justify-content: space-between;*/
 }
 
 .searchNavi {
@@ -43,6 +41,10 @@
     border-radius: 3px;
     margin-right: 10px;
     box-shadow: 0px 0px 15px -4px #000000 inset;
+}
+
+.inputWrap {
+    position: relative;
 }
 
 .buttonWrap {
@@ -82,10 +84,6 @@
     cursor: pointer;
 }
 
-.searchWrap {
-    display: flex;
-}
-
 .tagline {
     display: block;
     padding-right: 20px;
@@ -111,6 +109,15 @@
     text-decoration: none;
 }
 
+.summaryError {
+    color: red;
+    top: 23px;
+    left: 20px;
+    position: absolute;
+}
+
+
+
 @media screen and (max-width: 670px){
     .logoInfo {
         display: none;
@@ -133,7 +140,7 @@
 
 }
 @media screen and (max-width: 320px){
-    .alignWrapp {
+    .alignWrap {
         display: flex;
         flex-direction: column;
     }

@@ -9,6 +9,11 @@ import {Input} from "../../Common/formControls/FormsControls"
 
 class SearchInput extends Component {
 
+    constructor (props) {
+
+        super(props)
+    }
+
     state = {
         optionsData: [
             {optionValue: "Select year", optionData: "Select year"},
@@ -51,7 +56,7 @@ class SearchInput extends Component {
 
         const optionsData = this.state.optionsData.map(o => <option value={o.optionValue}>{o.optionData}</option>)
 
-        return (<form className={styles.alignWrapp} onSubmit={this.props.handleSubmit}>
+        return (<form className={styles.alignWrap} onSubmit={this.props.handleSubmit}>
 
                 <div className={styles.searchWrap}>
                     <div className={styles.logoInfo}>
@@ -61,7 +66,7 @@ class SearchInput extends Component {
                         </NavLink>
                     </div>
                     <div className={styles.searchInput}>
-                        <div className={styles.inputWrapp}>
+                        <div className={styles.inputWrap}>
                             <Field className={styles.inputStyle}
                                    name={"search"}
                                    type="text"
@@ -69,7 +74,10 @@ class SearchInput extends Component {
                                    placeholder="enter film"
                                    onChange={this.searchFilm}
                                    validate={requiredField} />
+                            { this.props.error&&<div className={styles.summaryError}>{this.props.error}</div> }
                         </div>
+
+
                     </div>
                     <div>
                         <button className={styles.buttonWrap} onClick={this.onSearchFilmClick}>Search</button>

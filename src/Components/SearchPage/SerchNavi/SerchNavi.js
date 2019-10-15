@@ -12,14 +12,11 @@ class SearchNavi extends Component {
         return (
             <div className={styles.searchContainerWrapper}>
                 <div className={styles.searchContainer}>
-
                         <SearchInputReduxForm
                             onSubmit={this.onSubmit}
                             getYear={this.props.getYear}
                             getFilmName={this.props.getFilmName}
-                            searchFilmClick={this.props.searchFilmClick}/>
-
-
+                            searchFilmClick={this.props.searchFilmClick} />
                 </div>
             </div>
         );

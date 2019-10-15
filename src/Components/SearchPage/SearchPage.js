@@ -5,7 +5,6 @@ import FilmItem from "./FilmsBlock/FilmItem"
 import SearchNavi from "./SerchNavi/SerchNavi"
 
 import {
-    clearAll,
     currentPageClick,
     getFilmName, getFilmsThunkCreator,
     getYear,
@@ -19,10 +18,6 @@ class SearchPage extends Component {
     searchFilmClick = () => {
         this.props.getFilmsData(this.props.filmName, this.props.year, this.props.currentPage)
     }
-
-    // resetSettings = (clear) => {
-    //     this.props.clearAll(clear)
-    // }
 
     getYear = (newYear) => {
         this.props.getYear(newYear)
@@ -90,9 +85,6 @@ const mapDispatchToProps = (dispatch) => {
         toggleIsFetching: (isFetching) => {
             dispatch(toggleIsFetching(isFetching))
         },
-        // clearAll: (clear) => {
-        //     dispatch(clearAll(clear))
-        // },
         currentPageClick: (currentPage) => {
             dispatch(currentPageClick(currentPage))
         },

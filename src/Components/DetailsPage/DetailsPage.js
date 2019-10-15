@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import {connect} from "react-redux"
 import {NavLink, withRouter} from "react-router-dom"
 import styles from "./DetailsPage.module.css"
-import {setFilmId, toggleIsFetching} from "../../redux/reducer"
+import {setFilmIdThunkCreator, toggleIsFetching} from "../../redux/reducer"
 import Preloader from "../Common/Preloader/Preloader"
 
 class DetailsPage extends Component {
@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(toggleIsFetching(isFetching))
         },
         setFilmId: (filmId) => {
-            dispatch(setFilmId(filmId))
+            dispatch(setFilmIdThunkCreator(filmId))
         }
     }
 }

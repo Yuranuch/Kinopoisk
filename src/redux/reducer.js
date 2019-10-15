@@ -1,4 +1,5 @@
 import {filmsAPI} from "../api/api"
+import {stopSubmit} from "redux-form"
 
 export const SET_FILMS = "SET_FILMS"
 export const GET_FILM = "GET_FILM"
@@ -40,12 +41,6 @@ export const filmsReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
 
-        case CLEAR_ALL:
-            return {
-                ...state,
-                films: action.clear
-            }
-
         case CURRENT_PAGE_CLICK:
 
             return {
@@ -79,7 +74,6 @@ export const filmsReducer = (state = initialState, action) => {
 export const setFilms = (films) => ({type: SET_FILMS, films})
 export const getFilm = (film) => ({type: GET_FILM, film})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
-export const clearAll = (clear) => ({type: CLEAR_ALL, clear})
 export const currentPageClick = (currentPage) => ({type: CURRENT_PAGE_CLICK, currentPage})
 export const getYear = (year) => (({type: GET_YEAR, year}))
 export const getFilmName = (filmName) => ({type: GET_FILM_NAME, filmName})
@@ -93,13 +87,16 @@ export const getFilmsThunkCreator = (film, year, currentPage) => {
         filmsAPI.getFilms(film, year, currentPage)
             .then(res => {
                 dispatch(toggleIsFetching(false))
-                dispatch(setFilms(res.data.Search))
-                dispatch(setTotalPageCount(res.data.totalResults))
+                if(res.data.Response===true) {
+                    dispatch(setFilms(res.data.Search))
+                    dispatch(setTotalPageCount(res.data.totalResults))
+                }else {
+                    dispatch(stopSubmit("login", {_error: "Film not found"}))}
             })
     }
 }
 
-export const setFilmId = (filmId) => {
+export const setFilmIdThunkCreator = (filmId) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true))
         filmsAPI.getFilmId(filmId)
