@@ -5,6 +5,7 @@
 
 .filmsBlockWrapper {
     max-width: 1000px;
+    min-height: 350px;
     margin: 30px auto;
     padding: 20px;
     background: rgba(000, 0, 0, 0.8);
