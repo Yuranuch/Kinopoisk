@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bb8f64d82a72fca634d00473571655d8",
+    "revision": "690ca1e3cb6d863d468d5edc6d94fc66",
     "url": "/Kinopoisk/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Kinopoisk/static/css/2.0624914a.chunk.css"
   },
   {
-    "revision": "95da375e6efd5979cba0",
+    "revision": "18034c612ee51ee0e308",
     "url": "/Kinopoisk/static/css/main.9d0f18e7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Kinopoisk/static/js/2.4c836c02.chunk.js"
   },
   {
-    "revision": "95da375e6efd5979cba0",
-    "url": "/Kinopoisk/static/js/main.9b77717b.chunk.js"
+    "revision": "18034c612ee51ee0e308",
+    "url": "/Kinopoisk/static/js/main.56e781b6.chunk.js"
   },
   {
     "revision": "c9bfac6ec3c75a031dd8",
