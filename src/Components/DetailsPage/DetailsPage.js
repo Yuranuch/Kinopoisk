@@ -28,7 +28,7 @@ class DetailsPage extends Component {
                     <img src={this.props.profile.Poster !== "N/A" ? this.props.profile.Poster :
                         "https://serial-go.com/uploads/no_poster.jpg"} alt=""/>
                 </div>
-                <NavLink className={styles.back} to="/search">Back</NavLink>
+                <NavLink className={styles.back} to="/">Back</NavLink>
             </div>
         )
     }
