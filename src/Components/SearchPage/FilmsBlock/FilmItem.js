@@ -9,7 +9,7 @@ function FilmItem(props) {
                 <div className={styles.filmsAlign}>
                     <div className={styles.filmPoster}>
                         <img src={props.Poster !== "N/A" ? props.Poster
-                            : "https://serial-go.com/uploads/no_poster.jpg"}/>
+                            : "https://serial-go.com/uploads/no_poster.jpg"} alt="poster"/>
                     </div>
                     <div className={styles.frontInfo}>
                         <div className={styles.title}>{props.Title}</div>

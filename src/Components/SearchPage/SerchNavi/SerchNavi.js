@@ -6,7 +6,7 @@ class SearchNavi extends Component {
 
     onSubmit = (formData) => {
         console.log(formData)
-    }
+    };
 
     render() {
         return (

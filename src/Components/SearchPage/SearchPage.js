@@ -39,7 +39,7 @@ class SearchPage extends Component {
 
         const {films = []} = this.props
         const filmsData = films.map(f =>
-            <FilmItem imdbID={f.imdbID} Title={f.Title} Year={f.Year} Poster={f.Poster}/>)
+            <FilmItem key={f.imdbID} imdbID={f.imdbID} Title={f.Title} Year={f.Year} Poster={f.Poster}/>)
 
         return (
             <div className={styles.searchPage}>
@@ -57,8 +57,12 @@ class SearchPage extends Component {
                         </div>
                         {films.length !== 0 ?<div className={styles.paginationWrap}>
                             <div className={styles.pagination}>
-                                {pages.map(p => <span onClick={() => {this.currentPageClick(p)}}
-                                className={this.props.currentPage === p && styles.selectedPage}>{p}</span>)}
+                                {
+                                    pages.map(p => {
+                                        return <span key={p} onClick={() => {this.currentPageClick(p)}}
+                                                     className={this.props.currentPage === p ? styles.selectedPage: ""}>{p}</span>
+                                    })
+                                }
                             </div>
                         </div>: ""}
                     </div>

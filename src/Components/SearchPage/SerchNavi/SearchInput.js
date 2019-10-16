@@ -9,23 +9,23 @@ class SearchInput extends Component {
 
     state = {
         optionsData: [
-            {optionValue: "Select year", optionData: "Select year"},
-            {optionValue: "1998", optionData: 1998},
-            {optionValue: "1999", optionData: 1999},
-            {optionValue: "2000", optionData: 2000},
-            {optionValue: "2001", optionData: 2001},
-            {optionValue: "2002", optionData: 2002},
-            {optionValue: "2003", optionData: 2003},
-            {optionValue: "2004", optionData: 2004},
-            {optionValue: "2006", optionData: 2005},
-            {optionValue: "2007", optionData: 2007},
-            {optionValue: "2008", optionData: 2008},
-            {optionValue: "2009", optionData: 2009},
-            {optionValue: "2010", optionData: 2010},
-            {optionValue: "2011", optionData: 2011},
-            {optionValue: "2012", optionData: 2012},
-            {optionValue: "2013", optionData: 2013},
-            {optionValue: "2014", optionData: 2014},
+            {id: 0, optionValue: "Select year", optionData: "Select year"},
+            {id: 1, optionValue: "1998", optionData: 1998},
+            {id: 2, optionValue: "1999", optionData: 1999},
+            {id: 3, optionValue: "2000", optionData: 2000},
+            {id: 4, optionValue: "2001", optionData: 2001},
+            {id: 5, optionValue: "2002", optionData: 2002},
+            {id: 6, optionValue: "2003", optionData: 2003},
+            {id: 7, optionValue: "2004", optionData: 2004},
+            {id: 8, optionValue: "2006", optionData: 2005},
+            {id: 9, optionValue: "2007", optionData: 2007},
+            {id: 10, optionValue: "2008", optionData: 2008},
+            {id: 11, optionValue: "2009", optionData: 2009},
+            {id: 12, optionValue: "2010", optionData: 2010},
+            {id: 13, optionValue: "2011", optionData: 2011},
+            {id: 14, optionValue: "2012", optionData: 2012},
+            {id: 15, optionValue: "2013", optionData: 2013},
+            {id: 16, optionValue: "2014", optionData: 2014},
         ],
     }
 
@@ -46,7 +46,7 @@ class SearchInput extends Component {
 
     render() {
 
-        const optionsData = this.state.optionsData.map(o => <option value={o.optionValue}>{o.optionData}</option>)
+        const optionsData = this.state.optionsData.map(o => <option key={o.id} value={o.optionValue}>{o.optionData}</option>)
 
         return (<form className={styles.alignWrap} onSubmit={this.props.handleSubmit}>
 

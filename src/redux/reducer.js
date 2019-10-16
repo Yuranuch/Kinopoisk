@@ -4,7 +4,6 @@ import {stopSubmit} from "redux-form"
 export const SET_FILMS = "SET_FILMS"
 export const GET_FILM = "GET_FILM"
 export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
-export const CLEAR_ALL = "CLEAR_ALL"
 export const CURRENT_PAGE_CLICK = "CURRENT_PAGE_CLICK"
 export const GET_YEAR = "GET_YEAR"
 export const GET_FILM_NAME = "GET_FILM_NAME"
@@ -66,8 +65,11 @@ export const filmsReducer = (state = initialState, action) => {
                 ...state,
                 totalFilmsCount: action.count
             }
+
+        default:
+            return state
     }
-    return state;
+
 }
 
 
@@ -87,18 +89,15 @@ export const getFilmsThunkCreator = (film, year, currentPage) => {
         filmsAPI.getFilms(film, year, currentPage)
             .then(res => {
                 dispatch(toggleIsFetching(false))
-                debugger
-                if(res.data.Response==="True") {
+                if (res.data.Response === "True") {
                     dispatch(setFilms(res.data.Search))
                     dispatch(setTotalPageCount(res.data.totalResults))
                 }
-                if(res.data.Response==="False"){
-                    if(res.data.Error === "Too many results."){
+                if (res.data.Response === "False") {
+                    if (res.data.Error === "Too many results.") {
                         dispatch(stopSubmit("login", {_error: "Film not found"}))
-                    }}
-
-
-
+                    }
+                }
             })
     }
 }
@@ -124,6 +123,7 @@ export const setPageThunkCreator = (film, year, pageNumber) => {
                 dispatch(setFilms(res.data.Search))
 
             })
-    }}
+    }
+}
 
 
