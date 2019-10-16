@@ -88,13 +88,14 @@ export const getFilmsThunkCreator = (film, year, currentPage) => {
         dispatch(toggleIsFetching(true))
         filmsAPI.getFilms(film, year, currentPage)
             .then(res => {
+                debugger
                 dispatch(toggleIsFetching(false))
                 if (res.data.Response === "True") {
                     dispatch(setFilms(res.data.Search))
                     dispatch(setTotalPageCount(res.data.totalResults))
                 }
                 if (res.data.Response === "False") {
-                    if (res.data.Error === "Too many results.") {
+                    if (res.data.Error === "Too many results."||res.data.Error === "Movie not found!") {
                         dispatch(stopSubmit("login", {_error: "Film not found"}))
                     }
                 }
